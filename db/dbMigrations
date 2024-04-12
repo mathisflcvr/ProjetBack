@@ -1,0 +1,17 @@
+
+
+
+con.connect (function (err)) {
+    if err throw err;
+    console.log "bien ouej"
+    const sql=
+    "INSERT INTO Player (hitpoints,damage,speed) VALUES?";
+    const values =[
+        ["",1],
+
+    ]
+    con.query sql, [values] function(err, result){
+        if (err) throw err;
+        console.log("database created" + result.affectedRows);
+    }
+}

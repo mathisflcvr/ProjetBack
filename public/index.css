@@ -1,0 +1,85 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  background-color: #000; /* Couleur de fond pour les zones non couvertes par le jeu */
+}
+
+#gameContainer {
+  position: relative;
+  width: 800px; /* Largeur du conteneur de jeu */
+  height: 600px; /* Hauteur du conteneur de jeu */
+  overflow: hidden; /* Empêche le débordement des éléments du jeu hors du conteneur */
+}
+
+.parallax-layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.background-far {
+  /* Couche arrière du parallaxe */
+  background-image: url("assets/background-far.png"); /* Chemin vers l'image de fond lointaine */
+  animation: parallax-far 20s linear infinite;
+}
+
+.background-near {
+  /* Couche avant du parallaxe */
+  background-image: url("assets/background-near.png"); /* Chemin vers l'image de fond proche */
+  animation: parallax-near 10s linear infinite;
+}
+
+@keyframes parallax-far {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+@keyframes parallax-near {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+.gameObject {
+  position: absolute;
+  transition: all 0.1s; /* Rend les déplacements plus fluides */
+}
+
+#Player {
+  width: 50px;
+  height: 50px;
+  background-image: url("assets/player.png"); /* Chemin vers l'image du joueur */
+  background-size: cover;
+  bottom: 20px;
+  left: 50%;
+}
+
+#enemy {
+  width: 40px;
+  height: 40px;
+  background-image: url("assets/enemy.png"); /* Chemin vers l'image de l'ennemi */
+  background-size: cover;
+  top: 20px;
+}
+
+#obstacle {
+  width: 100px;
+  height: 100px;
+  background-image: url("obstacle.png"); /* Chemin vers l'image de l'obstacle */
+  background-size: cover;
+  top: 200px;
+  left: 50%;
+}
